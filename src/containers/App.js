@@ -28,10 +28,13 @@ class App extends Component {
     const filteredRobots = robots.filter(robot => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase());
     })
-    return (
+
+    return !robots.length ?
+     <h1 className="tc">LOADING...</h1> :
+     (
       <div className="tc">
       <div className="header">
-        <h1 className="f1">RoboFriends</h1>
+        <h1 className="">RoboFriends</h1>
         <SearchBox searchChange={this.onSearch}/>
       </div>
       <CardList robots={filteredRobots}/>
